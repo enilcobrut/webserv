@@ -1,0 +1,166 @@
+{
+    "servers": [
+        {
+            "host": "localhost",
+            "port": [8081, 8082],
+            "server_name": "webserv-bands.com",
+            "root": "www",
+            "error_pages": {
+                "400": "/error_pages/400.html",
+                "403": "/error_pages/403.html",
+                "404": "/error_pages/404.html",
+                "500": "/error_pages/500.html"
+
+            },
+            "client_max_body_size": 2000000000,
+            "routes": [
+                {
+                    "path": "/",
+                    "root": "www",
+                    "default_file": "index.html",
+                    "directory_listing": true,
+                    "allowed_methods": ["GET", "POST", "HEAD"],
+                    "cgi": {
+                        "extension": [".py", ".pl", ".php"],
+                        "cgi_path": ["/cgi-bin"]
+                    },
+                    "upload": {
+						"enabled": true,
+						"upload_directory": "/upload"
+					}
+                },
+                {
+                    "path": "/upload",
+                    "root": "www/upload",
+                    "default_file": "delete.html",
+                    "directory_listing": false,
+                    "allowed_methods": ["GET", "DELETE"],
+                    "upload": {
+						"enabled": true,
+						"upload_directory": "/upload"
+					}
+                },
+                {
+                    "path": "/error_pages",
+                    "root": "/error_pages",
+                    "directory_listing": false,
+                    "allowed_methods": ["GET"]
+                },
+                {
+                    "path": "/css",
+                    "directory_listing": false,
+                    "allowed_methods": ["GET"]
+                },
+                {
+                    "path": "/www",
+                    "directory_listing": false,
+                    "allowed_methods": ["GET"]
+                },
+                {
+                    "path": "/cgi-path",
+                    "directory_listing": false,
+                    "allowed_methods": ["GET"]
+                },
+                {
+                    "path": "/js",
+                    "directory_listing": false,
+                    "allowed_methods": ["GET"]
+                },
+                {
+                    "path": "/js/vendor",
+                    "directory_listing": false,
+                    "allowed_methods": ["GET"]
+                },
+                {
+                    "path": "/fonts",
+                    "directory_listing": false,
+                    "allowed_methods": ["GET"]
+                },
+                {
+                    "path": "/img",
+                    "directory_listing": true,
+                    "allowed_methods": ["GET"]
+                },
+                {
+                    "path": "/mp3",
+                    "directory_listing": false,
+                    "allowed_methods": ["GET"]
+                },
+				{
+					"path": "/alevasse",
+					"redirect": "https://www.linkedin.com/in/anthony-levasseur/",
+                    "allowed_methods": ["GET"]
+				},
+				{
+					"path": "/cjunker",
+					"redirect": "https://www.linkedin.com/in/celine-junker-6b7870106/",
+                    "allowed_methods": ["GET"]
+				},
+				{
+					"path": "/flemaitr",
+					"redirect": "https://www.linkedin.com/in/fanny-lemaitre/",
+                    "allowed_methods": ["GET"]
+				}
+            ]
+        },
+        {
+            "host": "localhost",
+            "port": [8083],
+            "server_name": "test.com",
+            "root": "www",
+            "error_pages": {
+                "403": "/error_pages/403.html",
+                "404": "/error_pages/404.html",
+                "500": "/error_pages/500.html"
+            },
+            "client_max_body_size": 1048576,
+            "routes": [
+                {
+                    "path": "/",
+                    "root": "www",
+                    "default_file": "test.html",
+                    "directory_listing": true,
+                    "allowed_methods": ["GET"],
+                    "upload": {
+                        "enabled": false,
+                        "upload_directory": "/uploads1"
+                    }
+                },
+                {
+                    "path": "/cgi-bin",
+                    "root": "cgi-bin",
+                    "directory_listing": false,
+                    "allowed_methods": ["GET"],
+                    "cgi": {
+                        "extension": [".php", ".py"],
+                        "cgi_path": ["/cgi-bin"]
+                    },
+                    "upload": {
+                        "enabled": false,
+                        "upload_directory": "/uploads1"
+                    }
+                },
+                {
+                    "path": "/upload",
+                    "root": "www/upload",
+                    "default_file": "delete.html",
+                    "directory_listing": true,
+                    "allowed_methods": ["GET", "POST", "DELETE"],
+                    "upload": {
+                        "enabled": false,
+                        "upload_directory": "/upload"
+                    }
+                },
+                {
+                    "path": "/errors_pages",
+                    "directory_listing": true,
+                    "allowed_methods": ["GET"],
+                    "upload": {
+                        "enabled": false,
+                        "upload_directory": "/uploads"
+                    }
+                }
+            ]
+        }
+    ]
+}

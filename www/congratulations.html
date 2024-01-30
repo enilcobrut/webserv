@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Secret Page</title>
+    <link rel="stylesheet" href="/css/firework.css">
+  </head>
+  <body>
+    <div id="centered">
+      <h1>Congratulations you found the flag !</h1>
+    </div>
+    <script type="module">
+      import {Fireworks} from '/mp3/index.es.js';
+      window.onload = function() {
+
+        var fireworks = new Fireworks(document.body, {
+          sound: { files: ['mp3/explosion0.mp3', 'mp3/explosion1.mp3', 'mp3/explosion2.mp3'] ,enabled: true, max:1000 , min:1000},
+          autoresize: false
+        });
+            fireworks.start();
+          }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello, World!</title>
+    <link rel="stylesheet" href="/css/firework.css">
+  </head>
+  <body>
+    <div id="centered">
+      <h1>Hello, World!</h1>
+    </div>
+    <script type="module">
+      import {Fireworks} from '/mp3/index.es.js';
+      window.onload = function() {
+
+        var fireworks = new Fireworks(document.body, {
+          sound: { files: ['mp3/lighsaber.mp3', 'mp3/blaster.mp3', 'mp3/blaster2.mp3'] ,enabled: true, max:1000 , min:1000},
+          autoresize: false
+        });
+        window.addEventListener('keydown', function(event) {
+          if (event.code === 'Space') {
+            event.preventDefault();
+            fireworks.launch(1);
+          }
+        });
+      };
+    </script>
+  </body>
+</html>

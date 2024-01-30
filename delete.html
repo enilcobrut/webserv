@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Welcome on Webserv</title>
+    <link rel="icon" type="image/png" href="/favicon.ico">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/templatemo-style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+</head>
+<body>
+    <section id="blog">
+        <br>
+        <div class="section-heading">
+            <h1>List of <br><em>uploaded files</em></h1>
+        </div>
+        <div class="section-content">
+            <div style="border-collapse: collapse; width: 100%; display: table;">
+<p>CONTENT</p>
+                <script>
+                    function deleteFile(filename) {
+                        var xhr = new XMLHttpRequest();
+                        xhr.open('DELETE', '/upload/' + filename, true);
+                        xhr.onload = function () {
+                            if (xhr.status == 200) {
+                                alert('The file ' + filename + ' has been deleted. Refresh the page.');
+                            } else if (xhr.status == 404) {
+                                alert('The file ' + filename + ' doesn\'t exist. Refresh the page.');
+                            } else {
+                                alert('Error ' + xhr.status + ': Unable to delete the file ' + filename + '. Refresh the page.');
+                            }
+                        };
+                        xhr.send();
+                    }
+                </script>
+
+
+            </div>
+        </div>
+    </section>
+    </body>
+    </html>
